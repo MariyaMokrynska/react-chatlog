@@ -3,11 +3,11 @@ import ChatEntry from './components/ChatEntry.jsx';
 
 const App = () => {
   const DATA = {
-    id: 1,
-    sender: 'Vladimir',
-    body: 'why are you arguing with me',
-    timeStamp: '2018-05-29T22:49:06+00:00',
-    liked: false,
+    id: 7,
+    sender: 'Joe Biden',
+    body: "Get out by 8am.  I'll count the silverware",
+    timeStamp: '2018-05-18T22:12:03Z',
+    liked: false
   };
 
   return (
@@ -17,7 +17,7 @@ const App = () => {
       </header>
       <main>
         {/* Wave 01: Render one ChatEntry component*/
-        <ChatEntry message={DATA} />
+          <ChatEntry sender={DATA.sender} body={DATA.body} timeStamp={DATA.timeStamp} />
         /*Wave 02: Render ChatLog component */}
       </main>
     </div>
