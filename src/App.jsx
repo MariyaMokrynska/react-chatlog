@@ -1,15 +1,15 @@
 import './App.css';
 //import ChatEntry from './components/ChatEntry.jsx';
 import ChatLog from './components/ChatLog.jsx';
+import {useState} from 'react';
 
-const App = () => {
 const DATA = [
   {
     'id': 1,
     'sender': 'Vladimir',
     'body': 'why are you arguing with me',
     'timeStamp': '2018-05-29T22:49:06+00:00',
-    'liked': false
+    'liked': true
   },
   {
     'id': 2,
@@ -196,16 +196,44 @@ const DATA = [
 ];
 
 
+const App = () => {
+  const [messagesData, setMessagesData] = useState(DATA);
+  const toggleLiked = (messageId) => {
+    const messages = messagesData.map(message => {
+      if (message.id === messageId) {
+        return { ...message, liked: !message.liked };
+      } else {
+        return message;
+      }
+    });
+
+    setMessagesData(messages);
+  };
+
+  const getLikesCount = (messagesData) => {
+    return messagesData.reduce((previousCount, item)=>previousCount+item.liked, 0);
+  };
+
+  const getNames = (messagesData) => {
+    let namesSet= messagesData.reduce((accumulator, item)=>{
+      accumulator.add(item.sender);
+      return accumulator;
+    }, new Set());
+    let arr=[...namesSet];
+    return arr.join(' and ');
+  };
+
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>Chat between {getNames(messagesData)}</h1>
+        <section ><h1 className="widget">{getLikesCount(messagesData)} ❤️s</h1></section>
       </header>
       <main>
         {/* Wave 01: Render one ChatEntry component*/
           /* <ChatEntry sender={DATA.sender} body={DATA.body} timeStamp={DATA.timeStamp} />*/
         /*Wave 02: Render ChatLog component */
-        <ChatLog entries={DATA}/>}
+        <ChatLog entries={messagesData} onItemLikedToggle={toggleLiked}/>}
       </main>
     </div>
   );
