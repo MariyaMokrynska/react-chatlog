@@ -10,9 +10,10 @@ const ChatEntry = (props) => {
         // This function refers to the toggleStudentPresence function in App
         props.onLikedToggle(props.id);
     }; */
+  const messageClassName='chat-entry '+(props.isLocal?'local':'remote');
 
   return (
-    <div className="chat-entry local">
+    <div className={messageClassName}>
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
@@ -36,6 +37,7 @@ ChatEntry.propTypes = {
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.bool.isRequired,
-  onLikedToggle: PropTypes.func.isRequired
+  onLikedToggle: PropTypes.func.isRequired,
+  isLocal:PropTypes.bool.isRequired
 };
 export default ChatEntry;

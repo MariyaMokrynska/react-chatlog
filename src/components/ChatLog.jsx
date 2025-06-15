@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 
 const ChatLog = ({entries,onItemLikedToggle}) => {
+    let localName=entries[0].sender;
     return entries.map(entry => {
       return (
         <ChatEntry
@@ -14,6 +15,7 @@ const ChatLog = ({entries,onItemLikedToggle}) => {
           timeStamp={entry.timeStamp}
           liked={entry.liked}
           onLikedToggle={onItemLikedToggle}
+          isLocal={entry.sender==localName}
         />
       );
     })

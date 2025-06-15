@@ -227,7 +227,7 @@ const App = () => {
     <div id="App">
       <header>
         <h1>Chat between {getNames(messagesData)}</h1>
-        <section ><h1 className="widget">{getLikesCount(messagesData)} ❤️s</h1></section>
+        <section ><h1 id="heartWidget">{getLikesCount(messagesData)} ❤️s</h1></section>
       </header>
       <main>
         {/* Wave 01: Render one ChatEntry component*/
