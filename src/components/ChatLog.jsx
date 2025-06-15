@@ -4,22 +4,22 @@ import PropTypes from 'prop-types';
 
 
 const ChatLog = ({entries,onItemLikedToggle}) => {
-    let localName=entries[0].sender;
-    return entries.map(entry => {
-      return (
-        <ChatEntry
-          key={entry.id}
-          id={entry.id}
-          sender={entry.sender}
-          body={entry.body}
-          timeStamp={entry.timeStamp}
-          liked={entry.liked}
-          onLikedToggle={onItemLikedToggle}
-          isLocal={entry.sender==localName}
-        />
-      );
-    })
-};    
+  let localName=entries[0].sender;
+  return entries.map(entry => {
+    return (
+      <ChatEntry
+        key={entry.id}
+        id={entry.id}
+        sender={entry.sender}
+        body={entry.body}
+        timeStamp={entry.timeStamp}
+        liked={entry.liked}
+        onLikedToggle={onItemLikedToggle}
+        isLocal={entry.sender==localName}
+      />
+    );
+  });
+};
 
 
 

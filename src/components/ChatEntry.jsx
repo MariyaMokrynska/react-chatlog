@@ -5,11 +5,6 @@ import PropTypes from 'prop-types';
 
 const ChatEntry = (props) => {
   let heart = props.liked ? '❤️' : '🤍';
-/*   const likeButtonClicked = () => {
-        // Invoke the function passed in through the prop named "onPresenceToggle"
-        // This function refers to the toggleStudentPresence function in App
-        props.onLikedToggle(props.id);
-    }; */
   const messageClassName='chat-entry '+(props.isLocal?'local':'remote');
 
   return (
@@ -24,13 +19,6 @@ const ChatEntry = (props) => {
   );
 };
 
-/* ChatEntry.propTypes = {
-  message: PropTypes.shape({
-    sender: PropTypes.string.isRequired,
-    body: PropTypes.string.isRequired,
-    timeStamp: PropTypes.string.isRequired
-  })
-}; */
 ChatEntry.propTypes = {
   id: PropTypes.number.isRequired,
   sender: PropTypes.string.isRequired,

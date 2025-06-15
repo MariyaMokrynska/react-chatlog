@@ -1,5 +1,4 @@
 import './App.css';
-//import ChatEntry from './components/ChatEntry.jsx';
 import ChatLog from './components/ChatLog.jsx';
 import {useState} from 'react';
 
@@ -233,7 +232,7 @@ const App = () => {
         {/* Wave 01: Render one ChatEntry component*/
           /* <ChatEntry sender={DATA.sender} body={DATA.body} timeStamp={DATA.timeStamp} />*/
         /*Wave 02: Render ChatLog component */
-        <ChatLog entries={messagesData} onItemLikedToggle={toggleLiked}/>}
+          <ChatLog entries={messagesData} onItemLikedToggle={toggleLiked}/>}
       </main>
     </div>
   );
