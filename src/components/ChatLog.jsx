@@ -24,13 +24,13 @@ const ChatLog = ({entries,onItemLikedToggle}) => {
 
 
 ChatLog.propTypes = {
-    entries: PropTypes.arrayOf(
+  entries: PropTypes.arrayOf(
     PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        sender: PropTypes.string.isRequired,
-        body: PropTypes.string.isRequired,
-        timeStamp: PropTypes.string.isRequired,
-        liked: PropTypes.bool.isRequired,
+      id: PropTypes.number.isRequired,
+      sender: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      timeStamp: PropTypes.string.isRequired,
+      liked: PropTypes.bool.isRequired,
     })
   ).isRequired,
   onItemLikedToggle: PropTypes.func.isRequired
